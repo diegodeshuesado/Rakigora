@@ -21,6 +21,26 @@ var CONTACT = {
     });
   }
 
+  var fab = document.getElementById("wa-fab");
+  var toast = document.getElementById("toast");
+  if (fab) {
+    if (CONTACT.whatsapp) {
+      fab.href = "https://wa.me/" + CONTACT.whatsapp + "?text=" +
+        encodeURIComponent("Hola, me gustaría solicitar información sobre sus servicios.");
+    } else {
+      // Demostración: sin número configurado solo muestra un aviso.
+      fab.removeAttribute("target");
+      fab.addEventListener("click", function (e) {
+        e.preventDefault();
+        if (!toast) return;
+        toast.textContent = "Demostración: aquí se abrirá WhatsApp con el número de Rakigora.";
+        toast.classList.add("show");
+        clearTimeout(toast._t);
+        toast._t = setTimeout(function () { toast.classList.remove("show"); }, 3500);
+      });
+    }
+  }
+
   var form = document.getElementById("contact-form");
   var note = document.getElementById("form-note");
   if (form) {

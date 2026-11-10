@@ -122,6 +122,16 @@ textarea.field{resize:vertical}
 .footer-in nav{display:flex;flex-wrap:wrap;gap:8px 24px}
 .footer-in a:hover{color:#fff}
 
+/* Botón flotante de WhatsApp */
+.wa-fab{position:fixed;right:24px;bottom:24px;z-index:60;display:flex;align-items:center;gap:0;height:60px;min-width:60px;padding:0 15px;background:#25D366;color:#fff;border-radius:30px;box-shadow:0 6px 20px rgba(0,0,0,.45);transition:transform .2s,box-shadow .2s}
+.wa-fab:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,0,0,.55)}
+.wa-fab svg{flex:none}
+.wa-label{max-width:0;overflow:hidden;white-space:nowrap;font-size:15px;font-weight:700;opacity:0;transition:max-width .25s,opacity .2s,margin .25s}
+.wa-fab:hover .wa-label,.wa-fab:focus-visible .wa-label{max-width:220px;opacity:1;margin-right:10px}
+.toast{position:fixed;right:24px;bottom:100px;z-index:60;max-width:300px;background:#fff;color:var(--ink);font-size:14px;font-weight:500;padding:14px 16px;box-shadow:0 8px 24px rgba(0,0,0,.5);opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity .25s,transform .25s}
+.toast.show{opacity:1;transform:none}
+@media (max-width:860px){.wa-fab{right:16px;bottom:16px}.toast{right:16px;bottom:88px}}
+
 /* Móvil */
 @media (max-width:860px){
   .menu-btn{display:block}
